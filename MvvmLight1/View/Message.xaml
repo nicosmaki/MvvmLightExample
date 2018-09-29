@@ -29,7 +29,7 @@
         <Button Content="click1" Width="80" Command="{Binding Gotopage1}"></Button>
         <Button Content="click2" Width="80" Command="{Binding Gotopage2}"></Button>
         <Frame x:Name="mainframe" Content="{Binding Newpage}"></Frame>
-        <TextBox Width="80" Text="{Binding p.Loginname,Mode=OneWayToSource}"></TextBox>
+        <!--<TextBox Width="80" Text="{Binding p.Loginname,Mode=OneWayToSource}"></TextBox>-->
         <Button Content="click3" Width="80" Command="{Binding login}"></Button>
     </StackPanel>
 </Window>
