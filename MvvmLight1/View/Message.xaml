@@ -1,0 +1,35 @@
+﻿<Window x:Class="MvvmLight1.View.Message"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:mvvm="http://www.galasoft.ch/mvvmlight"
+        xmlns:local="clr-namespace:MvvmLight1.View"
+        mc:Ignorable="d"
+        DataContext="{Binding Source={StaticResource Locator},Path=messageView}"
+        Title="Message" Height="450" Width="800">
+    <StackPanel>
+        <TextBlock Text="{Binding p.Name,Mode=TwoWay}"></TextBlock>
+        <TextBlock Text="{Binding p.Age,Mode=TwoWay}"></TextBlock>
+        <TextBlock Text="{Binding p.Sex,Mode=TwoWay}"></TextBlock>
+        <Button Content="click" Width="80" Command="{Binding change}"></Button>
+        <DataGrid x:Name="data" ItemsSource="{Binding People}" AutoGenerateColumns="False" CanUserAddRows="False">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged">
+                    <i:InvokeCommandAction Command="{Binding Showdata1}" CommandParameter="{Binding ElementName=data}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="姓名" Width="*" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="年龄" Width="*" Binding="{Binding Age}"></DataGridTextColumn>
+                <DataGridTextColumn Header="性别" Width="*" Binding="{Binding Sex}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="click1" Width="80" Command="{Binding Gotopage1}"></Button>
+        <Button Content="click2" Width="80" Command="{Binding Gotopage2}"></Button>
+        <Frame x:Name="mainframe" Content="{Binding Newpage}"></Frame>
+        <TextBox Width="80" Text="{Binding p.Loginname,Mode=OneWayToSource}"></TextBox>
+        <Button Content="click3" Width="80" Command="{Binding login}"></Button>
+    </StackPanel>
+</Window>
