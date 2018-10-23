@@ -7,11 +7,18 @@
 			 xmlns:ignore="http://www.galasoft.ch/ignore"
              StartupUri="View/Message.xaml"
              mc:Ignorable="d ignore">
-    
+
     <Application.Resources>
         <!--Global View Model Locator-->
-        <vm:ViewModelLocator x:Key="Locator"
+        <!--<vm:ViewModelLocator x:Key="Locator"
+                             d:IsDataSource="True" />-->
+        <ResourceDictionary>
+            <vm:ViewModelLocator x:Key="Locator"
                              d:IsDataSource="True" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="MyControl/Style.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
     
 </Application>
