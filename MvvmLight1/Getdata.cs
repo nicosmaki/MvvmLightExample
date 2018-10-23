@@ -19,9 +19,9 @@ namespace MvvmLight1
             while (reader.Read())
             {
                 Person people = new Person();
-                people.Name = reader.GetString(0);
-                people.Age = reader.GetInt32(1);
-                people.Sex = reader.GetString(2);
+                people.Name = reader.GetString(1);
+                people.Age = reader.GetInt32(2);
+                people.Sex = reader.GetString(3);
                 list.Add(people);
             }
             con.Close();

@@ -36,6 +36,7 @@ namespace MvvmLight1.ViewModel
             Showdata1 = new RelayCommand<DataGrid>(showdata);
             Gotopage2 = new RelayCommand(gotopage2);
             Gotopage1 = new RelayCommand(gotopage1);
+            GotoW1 = new RelayCommand(goW1);
             //login = new RelayCommand(showlogin);
             this.People = Getdata.GetAllPeople();
             SqlConnection con = dbconnect.getcon();
@@ -45,13 +46,14 @@ namespace MvvmLight1.ViewModel
             {
                 //p = new Person();
                 this.p = new Person();
-                p.Name = reader.GetString(0);
-                p.Age = reader.GetInt32(1);
-                p.Sex = reader.GetString(2);
-                p.Content = reader.GetString(3);
+                p.Name = reader.GetString(1);
+                p.Age = reader.GetInt32(2);
+                p.Sex = reader.GetString(3);
+                p.Content = reader.GetString(4);
 
             }
             con.Close();
+            
         }
         private Person person;
         public Person p
@@ -103,6 +105,25 @@ namespace MvvmLight1.ViewModel
         {
             get;
             set;
+        }
+
+        public RelayCommand send1
+        {
+            get;
+            set;
+        }
+
+        public RelayCommand GotoW1
+        {
+            get;
+            set;
+        }
+
+        private void goW1()
+        {
+            Window1 w1 = new Window1();
+            w1.Show();
+            Messenger.Default.Send<string>("main to W1", "W1");
         }
 
         /*private void showlogin()

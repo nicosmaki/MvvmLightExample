@@ -41,6 +41,9 @@ namespace MvvmLight1.ViewModel
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<MessageViewModel>();
             SimpleIoc.Default.Register<Page1ViewModel>();
+            SimpleIoc.Default.Register<Page2ViewModel>();
+            SimpleIoc.Default.Register<Window1ViewModel>();
+            SimpleIoc.Default.Register<Window2ViewModel>();
 
         }
 
@@ -71,6 +74,30 @@ namespace MvvmLight1.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<Page1ViewModel>();
+            }
+        }
+
+        public Page2ViewModel P2
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<Page2ViewModel>();
+            }
+        }
+
+        public Window1ViewModel W1
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<Window1ViewModel>();
+            }
+        }
+
+        public Window2ViewModel W2
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<Window2ViewModel>();
             }
         }
 

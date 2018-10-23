@@ -6,9 +6,10 @@
       xmlns:local="clr-namespace:MvvmLight1.View"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      DataContext="{Binding Source={StaticResource Locator},Path=P2}"
       Title="Page2">
 
     <Grid>
-        <TextBlock Text="这是page2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Text="{Binding Mess}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Page>

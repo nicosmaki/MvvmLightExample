@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Messaging;
-
+using GalaSoft.MvvmLight.Command;
+using MvvmLight1.View;
 
 namespace MvvmLight1.ViewModel
 {
@@ -22,10 +23,16 @@ namespace MvvmLight1.ViewModel
             }
         }
 
+        public RelayCommand send2
+        {
+            get;
+            set;
+        }
+
         public Page1ViewModel()
         {
             Messenger.Default.Register<string>(this, "aaa", Getmsg);
-            
+            send2 = new RelayCommand(send);
             
         }
 
@@ -33,6 +40,14 @@ namespace MvvmLight1.ViewModel
         {
             this.Msg += msg;
             Messenger.Default.Unregister(this);
+        }
+
+        private void send()
+        {
+            
+            Messenger.Default.Send<Object>("cong 1 dao 2", "test");
+            Window1 window = new Window1();
+            window.Show();
         }
     }
 }
