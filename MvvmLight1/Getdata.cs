@@ -21,7 +21,7 @@ namespace MvvmLight1
                 Person people = new Person();
                 people.Name = reader.GetString(1);
                 people.Age = reader.GetInt32(2);
-                people.Sex = reader.GetString(3);
+                //people.Sex = reader.GetString(3);
                 list.Add(people);
             }
             con.Close();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MvvmLight1.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,4 +25,5 @@ namespace MvvmLight1.View
             InitializeComponent();
         }
     }
+    
 }

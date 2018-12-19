@@ -4,13 +4,16 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MvvmLight1.View"
+      xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       DataContext="{Binding Source={StaticResource Locator},Path=P1}"
+      Dialog:DialogParticipation.Register="{Binding}"
       Title="Page1">
 
     <StackPanel>
         <TextBlock Text="{Binding Msg}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Button Content="111" Width="80" Height="80" Command="{Binding send2}"></Button>
+        <Label Content="{Binding T}"/>
     </StackPanel>
 </Page>

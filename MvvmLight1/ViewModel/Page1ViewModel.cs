@@ -7,6 +7,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Messaging;
 using GalaSoft.MvvmLight.Command;
 using MvvmLight1.View;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace MvvmLight1.ViewModel
 {
@@ -23,17 +24,28 @@ namespace MvvmLight1.ViewModel
             }
         }
 
+        private string _t;
+        public string T
+        {
+            get { return _t; }
+            set
+            {
+                _t = value;
+                RaisePropertyChanged(() => T);
+            }
+        }
+
         public RelayCommand send2
         {
             get;
             set;
         }
 
+
         public Page1ViewModel()
         {
             Messenger.Default.Register<string>(this, "aaa", Getmsg);
             send2 = new RelayCommand(send);
-            
         }
 
         private void Getmsg(string msg)

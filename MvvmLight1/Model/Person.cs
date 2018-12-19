@@ -11,7 +11,7 @@ namespace MvvmLight1.Model
     public class Person:ObservableObject
     {
         private string _name;
-        private string _sex;
+        private Sex _sex;
         private int _age;
         private string _loginname;
         private string _loginpwd;
@@ -26,7 +26,7 @@ namespace MvvmLight1.Model
             }
         }
 
-        public String Sex
+        public Sex Sex
         {
             get { return _sex; }
             set

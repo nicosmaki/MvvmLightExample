@@ -9,4 +9,14 @@
 
     </LinearGradientBrush>
 
+    <Style TargetType="local:CustomTextBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:CustomTextBox">
+                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

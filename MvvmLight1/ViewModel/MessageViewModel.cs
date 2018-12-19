@@ -13,6 +13,7 @@ using System.Windows;
 using System.Windows.Interactivity;
 using MvvmLight1.View;
 using GalaSoft.MvvmLight.Messaging;
+using System.Threading;
 
 namespace MvvmLight1.ViewModel
 {
@@ -36,7 +37,7 @@ namespace MvvmLight1.ViewModel
             Showdata1 = new RelayCommand<DataGrid>(showdata);
             Gotopage2 = new RelayCommand(gotopage2);
             Gotopage1 = new RelayCommand(gotopage1);
-            GotoW1 = new RelayCommand(goW1);
+            GotoW1 = new RelayCommand(gotopage1);
             //login = new RelayCommand(showlogin);
             this.People = Getdata.GetAllPeople();
             SqlConnection con = dbconnect.getcon();
@@ -48,7 +49,13 @@ namespace MvvmLight1.ViewModel
                 this.p = new Person();
                 p.Name = reader.GetString(1);
                 p.Age = reader.GetInt32(2);
-                p.Sex = reader.GetString(3);
+                if (reader.GetString(3) == "男")
+                {
+                    p.Sex = Sex.Male;
+                }else if (reader.GetString(3) == "女")
+                {
+                    p.Sex = Sex.Female;
+                }
                 p.Content = reader.GetString(4);
 
             }
@@ -146,11 +153,14 @@ namespace MvvmLight1.ViewModel
             Page2 p2 = new Page2();
             Newpage = p2;
         }
-        private void gotopage1()
+        private async void gotopage1()
         {
-            Page1 p1 = new Page1();
-            Newpage = p1;
-            Messenger.Default.Send<string>("传过来的", "aaa");
+            MessageBox.Show("加载中");
+            var i = await Load();
+            if (i == 1)
+            {
+                MessageBox.Show("加载完毕");
+            }
         }
 
         private void getdata()
@@ -162,11 +172,18 @@ namespace MvvmLight1.ViewModel
             {
                 p.Name = reader.GetString(0);
                 p.Age = reader.GetInt32(1);
-                p.Sex = reader.GetString(2);
+                //p.Sex = reader.GetString(2);
                 p.Content = reader.GetString(3);
             }
             con.Close();
         }
-        
+
+        private static async Task<int> Load()
+        {
+            Console.WriteLine("开始加载");
+            await Task.Delay(1000);
+            Console.WriteLine("完成加载");
+            return 1;
+        }       
     }
 }
