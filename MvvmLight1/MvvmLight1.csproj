@@ -85,7 +85,6 @@
     <Compile Include="Model\IDataService.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Sex.cs" />
-    <Compile Include="Model\test1.cs" />
     <Compile Include="Model\TextMessage.cs" />
     <Compile Include="MyControl\CustomControl1.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
